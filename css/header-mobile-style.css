@@ -1,0 +1,40 @@
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    header{
+        width:100vw; height:8vh ;
+        background-color: black;
+    }
+    #logo-container{
+        width:200px; height: 100%;
+    }
+    #logo{
+        width:120px; height:120px;
+    }
+}
+/* landscape pixel 2*/
+@media only screen 
+  and (min-device-width: 412px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 2.6)
+  and (orientation: landscape) {
+    header{
+        /* min-height: ; */
+        width:100vw; height:8vh ;
+        background-color: black;
+    }
+}
+/* landscape pixel 2 XL */
+@media only screen 
+  and (min-device-width: 411px) 
+  and (max-device-width: 823px) 
+  and (-webkit-min-device-pixel-ratio: 3)
+  and (orientation: landscape) { 
+    header{
+        /* min-height: ; */
+        width:100vw; height:8vh ;
+        background-color: black;
+    }
+}

@@ -1,0 +1,14 @@
+header{
+    min-height: 81px;
+    width:100vw; height:11vh;
+    background-color: rgb(24, 24, 24);
+}
+#logo-container{
+    width:120px; height: 100%;
+}
+#logo{
+    width:90px; height:80px;
+}
+#download-container{
+    width:150px; height: 100%;
+}

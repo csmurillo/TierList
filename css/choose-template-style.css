@@ -1,0 +1,119 @@
+#choose-template-modal-container{
+    width:100vw; height: 100vh;
+    background-color: rgb(59, 59, 59);
+}
+#choose-template-modal-dialog{
+    max-width:100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top:120px;
+}
+#choose-template-modal{
+    width:80vw;
+}
+#choose-template-layout-tier-list-container{
+    width:100%; height: 100%;
+}
+#template-one-container,#template-two-container,#template-three-container{
+    width: 28%; height: 200px;
+    border-radius: 5px;
+}
+#template-one-container:hover,#template-two-container:hover,#template-three-container:hover{
+    background-color: rgb(117, 117, 117);
+    cursor: pointer;
+    color:white;
+}
+#template-one,#template-two,#template-three{
+    max-height: 153px;
+    width:100%; height: 1200%;
+    border-radius: 5px;
+    border: 1px solid gray;
+    display: flex;
+}
+#template-one-left-side{
+    width:25%; height: 100%;
+    font-size: 10px;
+    color:black;
+}
+#template-one-right-side{
+    width:70%; height: 100%;
+    background-color: black;
+}
+.template-one-tiers{
+    width: 100%; height: 25%;   
+    background-color: red;
+}
+.template-one-tiers-row{
+    width: 100%; height: 25%;
+    border-bottom: 1px solid white;   
+}
+#template-two-left-side{
+    width:10%; height: 100%;
+    font-size: 10px;
+    color:black;
+}
+#template-two-right-side{
+    width:90%; height: 100%;
+    background-color: black;
+}
+.template-two-tiers{
+    width: 100%; height: 16.66%;   
+    background-color: red;
+}
+.template-two-tiers-row{
+    width: 100%; height: 16.66%;
+    border-bottom: 1px solid white;   
+}
+#template-three-left-side{
+    width:10%; height: 100%;
+    font-size: 10px;
+    color:black;
+}
+#template-three-right-side{
+    width:90%; height: 100%;
+    background-color: black;
+}
+.template-three-tiers{
+    width: 100%; height: 20%;   
+    background-color: red;
+}
+.template-three-tiers-row{
+    width: 100%; height: 20%;
+    border-bottom: 1px solid white;   
+}
+#od,#a,#one{
+    background-color: orangered;
+    border-top-left-radius: 5px;
+}
+#advance,#b,#two{
+    background-color: red;
+}
+#good,#c,#three{
+    background-color: green;
+}
+#average,#d,#four{
+    background-color: lightgreen;
+}
+#e,#five{
+    background-color: blue;
+}
+#f{
+    background-color: lightblue;
+}
+@media (max-width:750px){
+    #template-one-container,#template-two-container,#template-three-container{
+        width: 30%; height: 200px;
+        border-radius: 5px;
+    }
+    #template-one-left-side{
+        width:60%;
+    }
+    #template-two-left-side{
+        width:25%;
+    }
+    #template-three-left-side{
+        width:25%;
+    }
+}
