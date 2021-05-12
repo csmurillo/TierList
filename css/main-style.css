@@ -3,6 +3,9 @@
     justify-content: center;
     align-items: center;
 }
+body{
+    overflow-y: hidden;
+}
 main{
     min-height: 662px;
     width:100vw; height:89vh;
