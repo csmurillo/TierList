@@ -6,6 +6,7 @@ $('#choose-template-modal-container').on('shown.bs.modal', function () {
     templateOne.addEventListener('click',()=>{
         createTierList('one');
         $('#choose-template-modal-container').modal('hide');
+        $('#upload-images-modal-container').modal('show');
     });
 
     // option 2
@@ -13,6 +14,7 @@ $('#choose-template-modal-container').on('shown.bs.modal', function () {
     templateTwo.addEventListener('click',()=>{
         createTierList('two');
         $('#choose-template-modal-container').modal('hide');
+        $('#upload-images-modal-container').modal('show');
     });
 
     // option 3
@@ -20,6 +22,7 @@ $('#choose-template-modal-container').on('shown.bs.modal', function () {
     templateThree.addEventListener('click',()=>{
         createTierList('three');
         $('#choose-template-modal-container').modal('hide');
+        $('#upload-images-modal-container').modal('show');
     });
 });
 
