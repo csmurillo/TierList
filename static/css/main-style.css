@@ -6,12 +6,20 @@
 body{
     overflow-y: hidden;
 }
+input, button, submit { border:none; } 
 main{
     min-height: 662px;
     width:100vw; height:89vh;
     display: flex;
 }
-
+#loading{
+    width:100vw; height:100vh;
+    font-size: 76px;
+    color:white;
+    position: absolute;
+    top:0; left:0;
+    display: none;
+}
 #tier-list-container{
     width: 80%; height: 100%;
 }
@@ -35,6 +43,13 @@ main{
     background-color: rgb(238, 238, 238);
     border-left: 2px solid gray;
     border-bottom: 2px solid gray;
+    display:flex;
+}
+#tier-images-title{
+    width:95%;
+}
+#tier-images-setting{
+    width:5%;
 }
 #tier-images-list-drag-drop-container{
     width: 100%; height: 96%;
@@ -51,7 +66,19 @@ main{
     background-color: rgb(241, 241, 241);
     position: relative;
 }
-
+#DropDownImages{
+    background-color: rgba(255, 255, 255, 0.089);
+}
+.modal-body{
+    z-index: 0;
+}
+#drop-zone-message{
+    width:100%; height: 100%;
+    top:0; left:0;
+    position: absolute;
+    display: flex;
+    z-index: -1;
+}
 
 @media (min-width:992px){
     #tier-list-container{
@@ -62,7 +89,7 @@ main{
     }
     .tier-image{
         max-height: 140px !important;
-        background-color: blue;
+        background-color: white;
     }
 }
 
@@ -75,7 +102,7 @@ main{
     }
     .tier-image{
         max-height: 150px;
-        background-color: blue;
+        background-color: white;
     }
 }
 @media (max-width:992px){
@@ -91,5 +118,6 @@ main{
     }
     .tier-image{
         max-height: 120px;
+        background-color: white;
     }
 }

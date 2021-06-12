@@ -1,9 +1,4 @@
-// after continuous testing i found that dropzone has a limit on 6 files per upload
-// however if you save dropImages.js you can upload as many file per upload
-// this code saves dropImages.js file every 1 sec
-const fs = require('fs');
-const  dropZoneHelper=()=>{
-    const code=`
+
 Dropzone.options.DropDownImages = {
     addRemoveLinks: true,
     autoDiscover: false,
@@ -26,17 +21,8 @@ Dropzone.options.DropDownImages = {
         e.stopPropagation();
         setInterval(()=>{
           dropzoneImages.processQueue();
-        },1000)
+        },5000)
         $('#upload-images-modal-container').modal('hide');
       });
-
     },
-    
-};`;
-
-setInterval(()=>{
-    fs.writeFile('./static/js/dropImages.js', code,(err)=>{});
-},1000)
-return;
 };
-exports.dropZoneHelper=dropZoneHelper;

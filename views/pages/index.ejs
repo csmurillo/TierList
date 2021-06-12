@@ -32,40 +32,42 @@
                 </div>
             </div>
             <div id="tier-images-container">
-                <div id="tier-images-title-container" class="center-content">
-                    <div id="tier-images-title">
+                <div id="tier-images-title-container">
+                    <div id="tier-images-title" class="center-content">
                         Images
                     </div>
+                    <div class="dropdown">
+                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="fas fa-cog"></i>
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuButton">
+                          <a class="dropdown-item" style="font-size: 20px;" href="#" onclick="addMoreImages();">Upload</a>
+                        </div>
+                      </div>
                 </div>
                 <div id="tier-images-list-drag-drop-container">
                     <div id="tier-images-list-drag-drop">
                         <div class="row g-0">
-                            <div class="tier-image col-lg-6 col-md-3 col-3">1
-                                <!-- <img src="" style="width:100%; height:100%;"/> -->
-                            </div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">2
-                                <!-- <img src="" style="width:100%; height:100%;"/> -->
-                            </div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">3
-                                <!-- <img src="" style="width:100%; height:100%;"/> -->
-                            </div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">4</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">5</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">6</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">7</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">8</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">9</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">10</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">11</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">12</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">13</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">14</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">15</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">16</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">17</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">18</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">19</div>
-                            <div class="tier-image col-lg-6 col-md-3 col-3">20</div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
+                            <div class="tier-image col-lg-6 col-md-3 col-3"></div>
                         </div>
                     </div>
                 </div>
@@ -174,6 +176,7 @@
                     </div>
                     <div class="modal-body">
                         <div id="drop-zone-container">
+                            <div id="drop-zone-message" class="center-content">Drop Images</div>
                             <!-- DROP ZONE -->
                             <form action="/uploadImages" enctype="multipart/form-data" class="dropzone center-content" id="DropDownImages">
                                 <div class="fallback">
@@ -190,14 +193,17 @@
                 </div>
             </div>
         </div>
-
+        <div id="loading" class="center-content">Loading...</div>
     </body>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>    
     <script src="../js/chooseTemplateModalHandler.js"></script>
     <script src="../js/initializeTierList.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/4.3.0/dropzone.js"></script>
-    <script src="../js/dropImages.js"></script>
+    <script src="../js/addImages.js"></script>
+    <script src="../js/dropZoneImages.js"></script>
+    <script src="../js/displayImages.js"></script>
 </html>
+
 
