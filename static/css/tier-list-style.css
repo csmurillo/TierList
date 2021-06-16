@@ -2,31 +2,44 @@
     overflow-y: scroll;
 }
 .tier-list-row-container{
-    width:100%; height: 150px;
+    width:100%; height: 140px;
 }
 .tier-title-container{
-    min-width: 149px;
+    min-width: 140px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .tier-item-container{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
     background-color: black;
+}
+#tier-images-list-drag-drop-container{
+    position: relative;
+}
+#tier-images-list-drag-drop{
+    height: 99%;
+}
+#tier-images-list{
+    height: 99%;
+    align-content: flex-start;
 }
 /* screen size styles */
 @media (max-width:992px){
     .tier-title-container{
-        width:15% ; height: 100%;
+        width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:85%; height: 100%;
+        width:90%; height: 100%;
     }
 }
 @media (min-width:992px){
     .tier-title-container{
-        width:18% ; height: 100%;
+        width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:82%; height: 100%;
+        width:90%; height: 100%;
     }
 }

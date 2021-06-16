@@ -17,14 +17,13 @@ $(document).on('hidden.bs.modal','#upload-images-modal-container', function () {
 });
 
 function setImages(imagePathArray){
-    console.log(imagePathArray);
     var classTierImages=document.getElementsByClassName('tier-image');
     var numberOfClassTierImages=classTierImages.length;
     for(var i =0; numberOfClassTierImages>i;i++){
-        // console.log(i+'!');
         var serverImage = new Image(classTierImages[i].offsetWidth, classTierImages[i].offsetHeight);
         if(imagePathArray[i]!=null){
             serverImage.src = ''+imagePathArray[i];
+            serverImage.id="image-"+i;
             serverImage.style.width="100%";
             serverImage.style.height="100%";
             classTierImages[i].innerHTML = '';
@@ -32,5 +31,7 @@ function setImages(imagePathArray){
         }
     }
     loading.style.display="none";
+    // images loaded: init draggable
+    initDraggeableImages();
 }
 

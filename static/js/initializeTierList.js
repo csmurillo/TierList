@@ -59,6 +59,7 @@ function createTierRow(id,templateList){
     tierRow.className="tier-list-row-container";
     tierRow.id=''+id;
     tierRow.style.display="flex";
+    tierRow.style.position="relative";
 
     // append tierrowtitle
     var tierRowTitleContainer=createTierRowTitleContainer(id,templateList);
