@@ -13,21 +13,50 @@
         <link href="../css/main-tablet-style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/tier-list-style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/tier-list-mobile-style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/tier-list-tablet-style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/tier-list-management-style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/tier-list-management-mobile-style.css" rel="stylesheet" type="text/css"/>
+        <link href="../css/tier-list-management-tablet-style.css" rel="stylesheet" type="text/css"/>
         <link href="../css/upload-images-style.css" rel="stylesheet" type="text/css"/>
         <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     </head>
     <body style="margin: 0 auto;">
-        <header class="d-flex justify-content-between">
-            <div id="logo-container" class="center-content">
-                <img id="logo" src="./assets/tierlist.png"/>
-            </div>
-            <div id="download-container" class="center-content">
-                <button id="download" class="btn btn-lg btn-secondary">Download</button>
-            </div>
+        <header class="w-100">
+            <nav class="w-100 h-100">
+                <ul id="nav-items-container" class="d-flex justify-content-between h-100">
+                    <li id="logo-container" class="center-content">
+                        <img id="logo" src="./assets/tierlist.png"/>
+                    </li>
+                    <li id="download-container" class="center-content">
+                        <button id="download" class="btn btn-lg btn-secondary">Download</button>
+                    </li>
+                    <li id="hamburger-icon-container" class="dropdown center-content">
+                        <button id="hamburger-icon" class="btn btn-secondary" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
+                            &#9776;
+                        </button>
+                        <ul id="drop-down-item-container" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
+                            <li>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Download</button>
+                                <hr>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Upload</button>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Delete</button>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </header>
         <main>
             <div id="tier-list-container">
+                <div id="tier-list-management-container">
+                    <div id="tier-list-title-container" class="vertical-align-center">
+                        <div id="tier-list-title" class="w-100" contenteditable="true">Title</div>
+                    </div>
+                    <div id="tier-list-add-row-container" class="center-content">
+                        <div id="tier-list-add-row">+Add Row</div>
+                    </div>
+                </div>
                 <div id="tier-list">
                 </div>
             </div>
@@ -36,12 +65,13 @@
                     <div id="tier-images-title" class="center-content">
                         Images
                     </div>
-                    <div class="dropdown">
-                        <button type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <div id="tier-images-settings" class="dropdown">
+                        <button type="button" id="tier-images-setting-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             <i class="fas fa-cog"></i>
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" style="font-size: 20px;" href="#" onclick="addMoreImages();">Upload</a>
+                          <a class="dropdown-item" style="font-size: 20px;" href="#" onclick="deleteImage();">Delete</a>
                         </div>
                       </div>
                 </div>

@@ -77,6 +77,7 @@ function createTierRowTitleContainer(id,templateList){
 
     // tier title
     const tierRowTitle = document.createElement("div");
+    tierRowTitle.contentEditable="true";
     tierRowTitle.id="tier-title-"+id;
     tierRowTitle.className="tier-title";
     tierRowTitle.innerHTML=templateTierTitleController(id,templateList);

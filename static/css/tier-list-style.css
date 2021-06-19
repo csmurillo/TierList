@@ -28,18 +28,24 @@
 }
 /* screen size styles */
 @media (max-width:992px){
+    #tier-list{
+        width:100%; height:85%;
+    }
     .tier-title-container{
         width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:90%; height: 100%;
+        width:100%; height: 100%;
     }
 }
 @media (min-width:992px){
+    #tier-list{
+        width:100%; height:90%;
+    }
     .tier-title-container{
         width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:90%; height: 100%;
+        width:100%; height: 100%;
     }
 }

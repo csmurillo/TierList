@@ -1,0 +1,39 @@
+/* Portrait and Landscape */
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 1) {
+    #tier-list-management-container{
+        height:5%;
+        display: flex;
+        font-size: 22px;
+    }
+    #tier-list-title-container{
+        height: 100%; width: 75%;
+    }
+    #tier-list-add-row-container{
+        height: 100%; width:25%;
+        background-color: rgb(230, 230, 230);
+        border-left: 1px solid black;
+    }
+}
+/* Landscape */
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: landscape) { 
+    #tier-list-management-container{
+        height:5%;
+        display: flex;
+        font-size: 22px;
+    }
+    #tier-list-title-container{
+        height: 100%; width: 75%;
+    }
+    #tier-list-add-row-container{
+        height: 100%; width:25%;
+        background-color: rgb(230, 230, 230);
+        border-left: 1px solid black;
+    }
+}

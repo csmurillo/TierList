@@ -1,0 +1,42 @@
+.vertical-align-center{
+    display: flex;
+    align-items: center;
+}
+#tier-list-title-container{
+    margin-left: 20px;
+}
+#tier-list-add-row-container:hover{
+    background-color: rgb(248, 248, 248);
+    cursor: pointer;
+}
+/* screen size styles */
+@media (max-width:992px){
+    #tier-list-management-container{
+        height:15%;
+        display: flex;
+        font-size: 22px;
+    }
+    #tier-list-title-container{
+        height: 100%; width: 75%;
+    }
+    #tier-list-add-row-container{
+        height: 100%; width:25%;
+        background-color: rgb(230, 230, 230);
+        border-left: 1px solid black;
+    }
+}
+@media (min-width:992px){
+    #tier-list-management-container{
+        height:10%;
+        display: flex;
+        font-size: 18px;
+    }
+    #tier-list-title-container{
+        height: 100%; width:85%;
+    }
+    #tier-list-add-row-container{
+        height: 100%; width:15%;
+        background-color: rgb(230, 230, 230);
+        border-left: 1px solid black;
+    }
+}

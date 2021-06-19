@@ -1,0 +1,19 @@
+/* Portrait */
+@media only screen 
+  and (min-device-width: 320px) 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2) {
+    #tier-list-management-container{
+        height:10%;
+        display: flex;
+        font-size: 22px;
+    }
+    #tier-list-title-container{
+        height: 100%; width: 75%;
+    }
+    #tier-list-add-row-container{
+        height: 100%; width:25%;
+        background-color: rgb(230, 230, 230);
+        border-left: 1px solid black;
+    }
+}

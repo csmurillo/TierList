@@ -6,4 +6,10 @@
     main{
         height: 92vh;
     }
+    #tier-images-title-container{
+      height: 5%;
+    }
+    tier-images-list-drag-drop-container{
+      height: 95%;
+    }
 }
