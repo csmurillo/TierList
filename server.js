@@ -41,7 +41,35 @@ app.get('/',(req,res)=>{
     res.render('pages/index');
 });
 
+app.delete('/deleteImages/:items',(req,res)=>{
+    var queueDeleteLinkz=[];
+    console.log('deletedeletedeletedeletedeletedeletedeletedeletedeletedelete');
+    console.log(req.params.items);
+    var collection=req.params.items.split('3000');
+    console.log(collection);
+    for(var i=0; i<collection.length;i++){
+        // console.log(collection[i]);
+        // console.log(collection[i].split('&').shift());
+        queueDeleteLinkz.push(collection[i].split('&').shift());
+    }
+    console.log(queueDeleteLinkz);
+    queueDeleteLinkz.shift();
+    console.log(queueDeleteLinkz);
+    
 
+    res.send('Got a DELETE request at /user')
+    for(var x=0; x<queueDeleteLinkz.length;x++){
+        fs.unlink('.'+queueDeleteLinkz[x].replace('%20',' '), (err) => {
+            if (err) {
+              console.error(err)
+              return
+            }
+          
+            //file removed
+          })
+    }
+
+});
 app.post('/uploadImages',upload.array('image',100),(req,res)=>{
     // console.log(req.files);
     res.json({success:"success",files:req.files});

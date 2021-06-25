@@ -15,7 +15,6 @@ $(document).on('hidden.bs.modal','#upload-images-modal-container', function () {
         async: true
     });
 });
-
 function setImages(imagePathArray){
     var classTierImages=document.getElementsByClassName('tier-image');
     var numberOfClassTierImages=classTierImages.length;
@@ -28,10 +27,23 @@ function setImages(imagePathArray){
             serverImage.style.height="100%";
             classTierImages[i].innerHTML = '';
             classTierImages[i].appendChild(serverImage);
+            saveImagesLocalStorage(serverImage.id,imagePathArray[i]);
         }
     }
     loading.style.display="none";
     // images loaded: init draggable
     initDraggeableImages();
 }
-
+function saveImagesLocalStorage(keyID,imageURL){
+    console.log('inside save images local storage');
+    console.log(localStorage.getItem(keyID));
+    console.log(imageURL);
+    console.log('///////////////////////////////');
+    var localStorageLength=localStorage.length;
+    for(var i=0; localStorageLength>i;i++){
+        if(localStorage.getItem(keyID)==imageURL){
+            return;
+        }
+    }
+    localStorage.setItem(keyID,imageURL);
+}

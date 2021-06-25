@@ -39,8 +39,8 @@
                             <li>
                                 <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Download</button>
                                 <hr>
-                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Upload</button>
-                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Delete</button>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none' onclick="addMoreImages();">Upload</button>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none' onTouch="loadImagesForDeletion();" onclick="loadImagesForDeletion();">Delete</button>
                             </li>
                         </ul>
                     </li>
@@ -71,7 +71,7 @@
                         </button>
                         <div class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuButton">
                           <a class="dropdown-item" style="font-size: 20px;" href="#" onclick="addMoreImages();">Upload</a>
-                          <a class="dropdown-item" style="font-size: 20px;" href="#" onclick="deleteImage();">Delete</a>
+                          <a class="dropdown-item" style="font-size: 20px;" href="#" onTouch="loadImagesForDeletion();" onclick="loadImagesForDeletion();">Delete</a>
                         </div>
                       </div>
                 </div>
@@ -104,6 +104,7 @@
             </div>
         </main>
         <!-- Modal -->
+        <!-- choose template -->
         <div id="choose-template-modal-container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div id="choose-template-modal-dialog" class="modal-dialog" role="document">
             <div id="choose-template-modal" class="modal-content">
@@ -217,12 +218,55 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                    <button id="upload-images" type="submit" class="btn btn-dark">Upload</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button id="upload-images" type="submit" class="btn btn-dark">Upload</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+        <!-- Delete Images Modal -->
+        <div id="delete-images-modal-container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div id="delete-images-modal-dialog" class="modal-dialog  modal-lg" role="document">
+                <div id="delete-images-modal" class="modal-content">
+                    <div class="modal-header">
+                        <div id="delete-images-title-container">
+                            <div id="delete-images-title">
+                                Delete Images
+                            </div>
+                        </div>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style='height:70vh; overflow: scroll;' class="modal-body">
+                        <div id="images-for-deletion-container">
+                            
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button id="delete-x-images" type="submit" class="btn btn-dark" onclick="deleteX();">Delete </button>
+                        <button id="delete-all-images" type="submit" class="btn btn-dark" onclick="deleteAll();">Delete All</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- dialog modal-->
+        <!-- Modal -->
+        <div id="dialog" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-body" style="text-align: center;">
+                    Are you sure?
+                </div>
+                <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="deleteImages();">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Delete Images Modal -->
         <div id="loading" class="center-content">Loading...</div>
     </body>
     <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
@@ -236,4 +280,5 @@
     <script src="../js/dropZoneImages.js"></script>
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
     <script src="../js/initializeDraggableImages.js"></script>
+    <script src="../js/deleteImages.js"></script>
 </html>

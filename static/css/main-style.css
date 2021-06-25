@@ -1,3 +1,15 @@
+.times{
+    padding-top:10px;
+    padding-right:10px;
+}
+#image-icon-times-container:hover{
+    color:black;
+    cursor: pointer;
+}
+#image-icon-times-container{
+    color:silver;
+    font-size: 24px;
+}
 .center-content{
     display: flex;
     justify-content: center;
