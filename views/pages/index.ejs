@@ -29,7 +29,7 @@
                         <img id="logo" src="./assets/tierlist.png"/>
                     </li>
                     <li id="download-container" class="center-content">
-                        <button id="download" class="btn btn-lg btn-secondary">Download</button>
+                        <button id="download" class="btn btn-lg btn-secondary" onclick="downloadPreview();">Download</button>
                     </li>
                     <li id="hamburger-icon-container" class="dropdown center-content">
                         <button id="hamburger-icon" class="btn btn-secondary" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-expanded="true">
@@ -37,7 +37,7 @@
                         </button>
                         <ul id="drop-down-item-container" class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu2">
                             <li>
-                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none'>Download</button>
+                                <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none' onclick="downloadPreview();">Download</button>
                                 <hr>
                                 <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none' onclick="addMoreImages();">Upload</button>
                                 <button id="mobile-download-button" class="dropdown-item" type="button" data-toggle="modal" data-target="#myModal" data-link='none' onTouch="loadImagesForDeletion();" onclick="loadImagesForDeletion();">Delete</button>
@@ -54,7 +54,7 @@
                         <div id="tier-list-title" class="w-100" contenteditable="true">Title</div>
                     </div>
                     <div id="tier-list-add-row-container" class="center-content">
-                        <div id="tier-list-add-row">+Add Row</div>
+                        <div id="tier-list-add-row" onclick="initRow();">+Add Row</div>
                     </div>
                 </div>
                 <div id="tier-list">
@@ -266,6 +266,44 @@
             </div>
             </div>
         </div>
+         <!-- create row modal-->
+        <!-- Modal -->
+        <div id="create-row-modal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <div id="row-to-be-created">
+
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                <button type="button" class="btn btn-dark" data-dismiss="modal" onclick="initRow(); addRow();">Create</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeAddRow();">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!-- Modal -->
+        <div id="download-modal" class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg" style="max-width: 1170px;" role="document">
+            <div class="modal-content" style="width:1150px;">
+                <div class="modal-header">
+                    Download Preview
+                </div>
+                <div class="modal-body" style="width: 100vw; overflow-x: scroll;">
+                    <div id="download-preview">
+
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                <div type="button" class="btn btn-dark" data-dismiss="modal">
+                    <a id="download-tier-list-link" onclick="downloadTierList();" style="color: #FFFFFF; text-decoration: none;" download>Download</a>
+                </div>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal" onclick="closeDownloadModal();">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
         <!-- Delete Images Modal -->
         <div id="loading" class="center-content">Loading...</div>
     </body>
@@ -281,4 +319,10 @@
     <script src="https://raw.githack.com/SortableJS/Sortable/master/Sortable.js"></script>
     <script src="../js/initializeDraggableImages.js"></script>
     <script src="../js/deleteImages.js"></script>
+    <script src="../js/addRow.js"></script>
+    <script src="../js/placeRow.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/dom-to-image@2.6.0/src/dom-to-image.min.js"></script>
+    <script src="../js/convertDomToImage.js"></script>
+    <script src="../js/tierList.js"></script>
+    <script src="../js/download.js"></script>
 </html>

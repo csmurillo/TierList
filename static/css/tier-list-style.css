@@ -35,7 +35,10 @@
         width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:100%; height: 100%;
+        width:80%; height: 100%;
+    }
+    .tier-item-delete-move-container{
+        width:20%; height:100%;
     }
 }
 @media (min-width:992px){
@@ -46,6 +49,9 @@
         width:10% ; height: 100%;
     }
     .tier-item-container{
-        width:100%; height: 100%;
+        width:90%; height: 100%;
+    }
+    .tier-item-delete-move-container{
+        width:10%; height:100%;
     }
 }

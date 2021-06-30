@@ -38,10 +38,49 @@ function initDraggeableImages(){
     // init rows & imagelist to initialize draggable items 
     // & accept draggable item inside their container
     // defined with sortablejs
-    initRowDraggable(tierList);
+    initRowsDraggable(tierList);
     initImageListDraggable(tierImagesList);
 }
-function initRowDraggable(tierList){
+function initRowDraggable(tierRow){
+    Sortable.create(tierRow, {
+        group: "row",
+        sort: true,
+        // launched when element ends inside a row
+        onEnd: function (evt) {
+            if(evt.to.id==evt.from.id){
+                autoResizeRow(evt.from);
+                autoResizeRow(evt.to);
+                return;
+            }
+            if(evt.from.children.length>0){
+                var tierList=document.getElementById('tier-list');
+                autoResizeRow(evt.from);
+                if(tierList.contains(evt.to)){
+                    autoResizeRow(evt.to);
+                }   
+            }
+        },
+        // launched when element is dragged
+        onMove: function (evt,ogEvt){
+            if(evt.to.id==evt.from.id){
+                autoResizeRow(evt.from);
+                autoResizeRow(evt.to);
+                return;
+            }
+            if(evt.from.children.length>0){
+                var tierList=document.getElementById('tier-list');
+                autoResizeRow(evt.from);
+                if(tierList.contains(evt.to)){
+                    autoResizeRow(evt.to);
+                }   
+            }
+            if(evt.to.id=='tier-images-list'){
+                resetImageItemStyles(evt.dragged);
+            }
+        }
+    });
+}
+function initRowsDraggable(tierList){
     for(var i=0; tierList.children.length>i;i++){
         var sortableRow=document.getElementById('tier-item-'+tierList.children[i].id+'-container');
         Sortable.create(sortableRow, {
@@ -89,8 +128,8 @@ function initImageListDraggable(tierImagesList){
         sort: false,
         // on initial data
         setData: function (dataTransfer,itemDragged) {
-            itemDragged.style.width="140px";
-            itemDragged.style.height="140px";
+            itemDragged.style.width="139px";
+            itemDragged.style.height="139px";
         },
         // launched when element is first dragged
         onStart: function (evt) { 

@@ -66,6 +66,11 @@ function createTierRow(id,templateList){
     tierRow.append(tierRowTitleContainer);
     var tierRowItemContainer=createTierRowItemContainer(id);
     tierRow.append(tierRowItemContainer);
+
+    // append delete move container to tier row
+    var deleteMoveContainer=createMoveDeleteContainer(id);
+    tierRow.append(deleteMoveContainer);
+
     return tierRow;
 }
 function createTierRowTitleContainer(id,templateList){
@@ -74,13 +79,54 @@ function createTierRowTitleContainer(id,templateList){
     tierRowTitleContainer.id="tier-"+id+"-title-container";
     tierRowTitleContainer.className="tier-title-container"
     tierRowTitleContainer.style.backgroundColor=templateTierTitleColors(id);
+    tierRowTitleContainer.style.position="relative";
+
+    const tierRowTitleChangeColorContainer = document.createElement("div");
+    tierRowTitleChangeColorContainer.id="tier-"+id+"-title-color-change-container";
+    tierRowTitleChangeColorContainer.className="tier-title-color-change-container";
+    tierRowTitleChangeColorContainer.style.display="none";
+    tierRowTitleChangeColorContainer.style.right="0px";
+    tierRowTitleChangeColorContainer.style.bottom="0px";
+    tierRowTitleChangeColorContainer.style.padding="10px";
+    tierRowTitleChangeColorContainer.style.position="absolute";
+    tierRowTitleChangeColorContainer.style.backgroundColor="rgb(248, 248, 248)";
+    tierRowTitleChangeColorContainer.style.fontSize="10px";
+    tierRowTitleChangeColorContainer.innerHTML=`<span>background color</span> <input id="tier-`+id+`-title-color-change-picker" style="position: relative;
+    width: 0px; height: 0px; z-index: -9999; position:absolute; bottom:0px; left:0px" type="color" width="0" height="0" id="head" name="head" value="#e66465">`;
+
+
+    tierRowTitleChangeColorContainer.addEventListener('mouseover',()=>{
+        tierRowTitleChangeColorContainer.style.cursor="pointer";
+    });
+    tierRowTitleChangeColorContainer.addEventListener('click',()=>{
+        var colorPicker=document.getElementById("tier-"+id+"-title-color-change-picker");
+        console.log(colorPicker);
+        console.log('will be clicked');
+        colorPicker.click();
+    });
+
+    tierRowTitleContainer.addEventListener('mouseenter',()=>{
+        tierRowTitleChangeColorContainer.style.display="inline-block";
+    });
+    tierRowTitleContainer.addEventListener('mouseleave',()=>{
+        tierRowTitleChangeColorContainer.style.display="none";
+    });
+
+
+    // tierRowTitleChangeColorContainer.style.
+    tierRowTitleContainer.appendChild(tierRowTitleChangeColorContainer);
 
     // tier title
     const tierRowTitle = document.createElement("div");
     tierRowTitle.contentEditable="true";
     tierRowTitle.id="tier-title-"+id;
     tierRowTitle.className="tier-title";
-    tierRowTitle.innerHTML=templateTierTitleController(id,templateList);
+    if(templateList!=null){
+        tierRowTitle.innerHTML=templateTierTitleController(id,templateList);
+    }
+    else{
+        tierRowTitle.innerHTML="~";
+    }
     tierRowTitleContainer.append(tierRowTitle);
     return tierRowTitleContainer;
 }
@@ -91,6 +137,62 @@ function createTierRowItemContainer(id){
     tierRowItemContainer.style.backgroundColor="black";
     tierRowItemContainer.style.borderBottom="1px solid white";
     return tierRowItemContainer;
+}
+
+function createMoveDeleteContainer(id){
+    const tierItemDeleteMoveContainer = document.createElement("div");
+    tierItemDeleteMoveContainer.id="tier-item-"+id+"-delete-move-container";
+    tierItemDeleteMoveContainer.className="tier-item-delete-move-container";
+    tierItemDeleteMoveContainer.style.position="absolute";
+    tierItemDeleteMoveContainer.style.right="0px";
+    tierItemDeleteMoveContainer.style.top="0px";
+    tierItemDeleteMoveContainer.style.borderLeft="1px solid rgb(199, 199, 199)";
+    tierItemDeleteMoveContainer.style.borderBottom="1px solid rgb(199, 199, 199)";
+    tierItemDeleteMoveContainer.style.backgroundColor="black";
+    // up arrow
+    const upArrow = document.createElement("div");
+    upArrow.innerHTML="<i class='fas fa-chevron-up'></i>";
+    upArrow.style.color="rgb(199, 199, 199)";
+    upArrow.style.fontSize="30px";
+    upArrow.style.display="flex";
+    upArrow.style.justifyContent="center";
+    upArrow.style.alignItems="flex-end";
+    upArrow.style.width="100%";
+    upArrow.style.height="25%";
+    upArrow.addEventListener('click',()=>{
+        moveUp(upArrow.parentNode.parentNode);
+    });
+    tierItemDeleteMoveContainer.appendChild(upArrow);
+    // delete button
+    const deleteButton = document.createElement("div");
+    deleteButton.innerHTML="Delete";
+    deleteButton.style.color="rgb(170, 170, 170)";
+    deleteButton.style.display="flex";
+    deleteButton.style.justifyContent="center";
+    deleteButton.style.alignItems="center";
+    deleteButton.style.width="100%";
+    deleteButton.style.height="50%";
+    deleteButton.addEventListener('click',()=>{
+        deleteRow(deleteButton.parentNode.parentNode);
+    });
+    tierItemDeleteMoveContainer.appendChild(deleteButton);
+    // down arrow
+    const downArrow = document.createElement("div");
+    downArrow.innerHTML="<i class='fas fa-chevron-down'></i>";
+    downArrow.style.color="rgb(199, 199, 199)";
+    downArrow.style.fontSize="30px";
+    downArrow.style.display="flex";
+    downArrow.style.justifyContent="center";
+    downArrow.style.alignItems="start";
+    downArrow.style.width="100%";
+    downArrow.style.height="25%";
+    downArrow.addEventListener('click',()=>{
+        moveDown(downArrow.parentNode.parentNode);
+    });
+    tierItemDeleteMoveContainer.appendChild(downArrow);
+
+    return tierItemDeleteMoveContainer;
+
 }
 function templateTierTitleColors(id){
     if(id==0){
@@ -110,6 +212,9 @@ function templateTierTitleColors(id){
     }
     else if(id==5){
         return 'lightblue';
+    }
+    else{
+        return 'white';
     }
 }
 function templateTierTitleController(id,template){
@@ -177,3 +282,4 @@ function templateThreeTierTitles(id,template){
         return '6';
     }
 }
+
